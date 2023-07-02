@@ -1,0 +1,65 @@
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  .title {
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .dash-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30px;
+    margin-top: 25px;
+
+    .dash-card {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      width: 430px;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #ffffff;
+
+      .country {
+        font-size: 30px;
+        font-weight: 900;
+        padding: 25px;
+      }
+
+      .case {
+        padding: 7px;
+        color: #ffffff;
+
+        .case_title {
+          font-size: 20px;
+        }
+
+        .stat {
+          font-size: 35px;
+        }
+      }
+
+      .total {
+        background-color: #101b27;
+      }
+
+      .active {
+        background-color: #2073d2;
+      }
+      .recovered {
+        background-color: #37a762;
+      }
+
+      .active_rec_container {
+        display: flex;
+        width: 100%;
+
+        .case {
+            width: 215px;
+        }
+      }
+    }
+  }
+}
