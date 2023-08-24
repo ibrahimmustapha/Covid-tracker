@@ -6,23 +6,23 @@
     <div *ngIf="countryStats">
       <div class="text-4xl font-black pb-4">{{ countryStats?.country }}</div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-white">
-        <div class="row-span-2 shadow-md bg-violet-700 text-center rounded-2xl py-40">
+        <div class="row-span-2 shadow-md bg-violet-700 text-center rounded-2xl py-40 hover:animate-pulse cursor-pointer">
             <div class="text-lg font-black">Confirmed Cases</div>
             <div class="text-5xl font-black py-6">{{ countryStats?.cases.total || 0 }}</div>
         </div>
-        <div class="shadow-md bg-slate-800 rounded-2xl text-center md:pt-14 p-7">
+        <div class="shadow-md bg-slate-800 rounded-2xl text-center md:pt-14 p-7 hover:animate-pulse cursor-pointer">
           <div class="text-lg font-black md:p-0">Death</div>
           <div class="text-5xl font-black md:py-5 p-3">{{ countryStats?.deaths.total || 0 }}</div>
         </div>
-        <div class="shadow-md bg-red-700 rounded-2xl text-center md:pt-14 p-7">
+        <div class="shadow-md bg-red-700 rounded-2xl text-center md:pt-14 p-7 hover:animate-pulse cursor-pointer">
           <div class="text-lg font-black md:p-0">Active</div>
           <div class="text-5xl font-black md:py-5 p-5">{{ countryStats?.cases.active || 0 }}</div>
         </div>
-        <div class="shadow-md bg-green-700 rounded-2xl text-center md:pt-14 p-10">
+        <div class="shadow-md bg-green-700 rounded-2xl text-center md:pt-14 p-10 hover:animate-pulse cursor-pointer">
           <div class="text-lg font-black md:p-0 ">Recovered</div>
           <div class="text-5xl font-black md:py-5 p-3">{{ countryStats?.cases.recovered || 0 }}</div>
         </div>
-        <div class="shadow-md bg-[#28817e] rounded-2xl text-center md:pt-14 p-10">
+        <div class="shadow-md bg-[#28817e] rounded-2xl text-center md:pt-14 p-10 hover:animate-pulse cursor-pointer">
           <div class="text-lg font-black">Tests</div>
           <div class="text-5xl font-black md:py-5 p-3">{{ countryStats?.tests.total || 0}}</div>
         </div>

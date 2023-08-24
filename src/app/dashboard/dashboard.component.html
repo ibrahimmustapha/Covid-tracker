@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div *ngIf="statistics" class="max-w-6xl m-auto my-10">
-  <div class="text-2xl">Dashboard</div>
-  <div class="grid grid-cols-2 items-center pt-3 pb-5 gap-5">
+  <div class="text-2xl mx-5">Dashboard</div>
+  <div class="grid md:grid-cols-2 items-center pt-3 pb-5 gap-5 mx-5">
     <input
       type="search"
       placeholder="Type your country here"
@@ -9,13 +9,13 @@
       class="p-4 bg-white rounded-full shadow-md"
     />
     <div
-      class="p-4 bg-slate-500 text-white rounded-full text-lg w-3/12 text-center shadow-md"
+      class="p-4 bg-slate-500 text-white rounded-full text-lg md:w-3/12 text-center shadow-md cursor-pointer"
       (click)="searchByCountry()"
     >
       Search
     </div>
   </div>
-  <div class="py-5" *ngIf="filteredCountries">
+  <div class="py-5 mx-5" *ngIf="filteredCountries">
     <div class="text-slate-500 py-3">Search results</div>
     <app-dashcard
       (click)="getCountryStat(filteredCountries.country)"
@@ -24,7 +24,7 @@
     ></app-dashcard>
     <div class="divide-y border-b-2 border-slate-300 pb-5"></div>
   </div>
-  <div class="grid md:grid-cols-3 gap-6">
+  <div class="grid md:grid-cols-3 gap-6 sm:grid-cols-2 mx-5">
     <app-dashcard
       *ngFor="let stats of statsArray"
       (click)="getCountryStat(stats.country)"
