@@ -1,6 +1,6 @@
 .header-container {
   background-color: #ffffff;
-  
+
   .inner-container {
     display: flex;
     justify-content: space-between;
@@ -13,6 +13,13 @@
     .logo {
       font-size: 23px;
       font-weight: 900;
+      cursor: pointer;
+    }
+
+    .links-container {
+      display: flex;
+      gap: 20px;
+      cursor: pointer;
     }
   }
 }

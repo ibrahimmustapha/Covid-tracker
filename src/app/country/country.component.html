@@ -1,1 +1,31 @@
-<p>country works!</p>
+<app-header></app-header>
+<div class="country-container">
+  <div class="title">Statistics</div>
+  <div class="content-container">
+    <div class="card" *ngIf="countryStats">
+      <div class="card-title">{{ countryStats?.country }}</div>
+      <div class="cases-container">
+        <div class="case total-cases">
+            <div class="case-title">Confirmed Cases</div>
+            <div class="case-stat">{{ countryStats?.cases.total || 0 }}</div>
+        </div>
+        <div class="case death-cases">
+          <div class="case-title">Deaths</div>
+          <div class="case-stat">{{ countryStats?.deaths.total || 0 }}</div>
+        </div>
+        <div class="case active-cases">
+          <div class="case-title">Active Cases</div>
+          <div class="case-stat">{{ countryStats?.cases.active || 0 }}</div>
+        </div>
+        <div class="case recovered-cases">
+          <div class="case-title">Recovered</div>
+          <div class="case-stat">{{ countryStats?.cases.recovered || 0 }}</div>
+        </div>
+        <div class="case tests-cases">
+          <div class="case-title">Tests</div>
+          <div class="case-stat">{{ countryStats?.tests.total || 0}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,40 @@
 <app-header></app-header>
 <div *ngIf="statistics" class="dashboard-container">
   <div class="title">Dashboard</div>
+  <div class="search-container">
+    <input
+      type="search"
+      placeholder="Type your country here"
+      [(ngModel)]="country"
+    />
+    <div class="btn" (click)="searchByCountry()">Search</div>
+  </div>
+  <div class="search-results-container" *ngIf="filteredCountries">
+    <div class="search-results">Search results</div>
+    <div class="dash-card" (click)="getCountryStat(filteredCountries.country)">
+      <div class="country">{{ filteredCountries?.country }}</div>
+      <div class="content-details">
+        <div class="cases">
+          <div class="case total">
+            <div class="case_title">Total Cases</div>
+            <div class="stat">{{ filteredCountries?.cases.total }}</div>
+          </div>
+          <div class="active_rec_container">
+            <div class="case active">
+              <div class="case_title">Active</div>
+              <div class="stat">{{ filteredCountries?.cases.active || "0" }}</div>
+            </div>
+            <div class="case recovered">
+              <div class="case_title">Recovered</div>
+              <div class="stat">{{ filteredCountries?.cases.recovered || "0" }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="dash-container">
-    <div *ngFor="let stats of statsArray" class="dash-card">
+    <div *ngFor="let stats of statsArray" (click)="getCountryStat(stats.country)" class="dash-card">
       <div class="country">{{ stats?.country }}</div>
       <div class="content-details">
         <div class="cases">
@@ -11,15 +43,15 @@
             <div class="stat">{{ stats?.cases.total }}</div>
           </div>
           <div class="active_rec_container">
-          <div class="case active">
-            <div class="case_title">Active</div>
-            <div class="stat">{{ stats?.cases.active || "0" }}</div>
+            <div class="case active">
+              <div class="case_title">Active</div>
+              <div class="stat">{{ stats?.cases.active || "0" }}</div>
+            </div>
+            <div class="case recovered">
+              <div class="case_title">Recovered</div>
+              <div class="stat">{{ stats?.cases.recovered || "0" }}</div>
+            </div>
           </div>
-          <div class="case recovered">
-            <div class="case_title">Recovered</div>
-            <div class="stat">{{ stats?.cases.recovered || "0" }}</div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
