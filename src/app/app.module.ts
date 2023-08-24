@@ -9,6 +9,7 @@ import { CountryComponent } from './country/country.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { DashcardComponent } from './dashcard/dashcard.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     DashboardComponent,
     CountryComponent,
+    DashcardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FontAwesomeModule, FormsModule],
   providers: [],

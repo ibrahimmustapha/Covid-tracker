@@ -1,60 +1,36 @@
 <app-header></app-header>
-<div *ngIf="statistics" class="dashboard-container">
-  <div class="title">Dashboard</div>
-  <div class="search-container">
+<div *ngIf="statistics" class="max-w-6xl m-auto my-10">
+  <div class="text-2xl">Dashboard</div>
+  <div class="grid grid-cols-2 items-center pt-3 pb-5 gap-5">
     <input
       type="search"
       placeholder="Type your country here"
       [(ngModel)]="country"
+      class="p-4 bg-white rounded-full shadow-md"
     />
-    <div class="btn" (click)="searchByCountry()">Search</div>
-  </div>
-  <div class="search-results-container" *ngIf="filteredCountries">
-    <div class="search-results">Search results</div>
-    <div class="dash-card" (click)="getCountryStat(filteredCountries.country)">
-      <div class="country">{{ filteredCountries?.country }}</div>
-      <div class="content-details">
-        <div class="cases">
-          <div class="case total">
-            <div class="case_title">Total Cases</div>
-            <div class="stat">{{ filteredCountries?.cases.total }}</div>
-          </div>
-          <div class="active_rec_container">
-            <div class="case active">
-              <div class="case_title">Active</div>
-              <div class="stat">{{ filteredCountries?.cases.active || "0" }}</div>
-            </div>
-            <div class="case recovered">
-              <div class="case_title">Recovered</div>
-              <div class="stat">{{ filteredCountries?.cases.recovered || "0" }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div
+      class="p-4 bg-slate-500 text-white rounded-full text-lg w-3/12 text-center shadow-md"
+      (click)="searchByCountry()"
+    >
+      Search
     </div>
   </div>
-  <div class="dash-container">
-    <div *ngFor="let stats of statsArray" (click)="getCountryStat(stats.country)" class="dash-card">
-      <div class="country">{{ stats?.country }}</div>
-      <div class="content-details">
-        <div class="cases">
-          <div class="case total">
-            <div class="case_title">Total Cases</div>
-            <div class="stat">{{ stats?.cases.total }}</div>
-          </div>
-          <div class="active_rec_container">
-            <div class="case active">
-              <div class="case_title">Active</div>
-              <div class="stat">{{ stats?.cases.active || "0" }}</div>
-            </div>
-            <div class="case recovered">
-              <div class="case_title">Recovered</div>
-              <div class="stat">{{ stats?.cases.recovered || "0" }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="py-5" *ngIf="filteredCountries">
+    <div class="text-slate-500 py-3">Search results</div>
+    <app-dashcard
+      (click)="getCountryStat(filteredCountries.country)"
+      [country]="filteredCountries?.country"
+      [active]="filteredCountries?.cases.active"
+    ></app-dashcard>
+    <div class="divide-y border-b-2 border-slate-300 pb-5"></div>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <app-dashcard
+      *ngFor="let stats of statsArray"
+      (click)="getCountryStat(stats.country)"
+      [country]="stats?.country"
+      [active]="stats?.cases.active"
+    ></app-dashcard>
     <hr />
   </div>
 </div>
